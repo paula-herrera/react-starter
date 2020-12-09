@@ -9,25 +9,25 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      movies: MoviesExampleData,
-      searchedMovies: []
+      moviesSearched: MoviesExampleData,
+      allMovies: MoviesExampleData
     }
 
     this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this);
   }
 
   handleSearchButtonClick(val) {
-    // console.log(val)
-    // console.log(this.state.movies);
-    for (var movie of this.state.movies) {
-      //console.log('original title:', movie.title);
+    let searchResults = [];
+
+    for (var movie of this.state.allMovies) {
       let title = movie.title.toLowerCase();
-      //console.log('toLowerCase title:', title);
       if (title.indexOf(val.toLowerCase()) > -1) {
-        console.log(`${movie.title}`);
+        searchResults.push(movie);
       };
     }
-
+    this.setState({
+      moviesSearched: searchResults
+    })
   }
 
   render(){
@@ -38,7 +38,7 @@ class App extends React.Component {
         <Search handleSearchButtonClick={this.handleSearchButtonClick}/>
       </div>
       <div>
-        <MovieList movies={this.state.movies}/>
+        <MovieList movies={this.state.moviesSearched}/>
       </div>
     </div>
   )}

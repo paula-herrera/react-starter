@@ -1,13 +1,12 @@
 import React from 'react';
+import MovieListEntry from './MovieListEntry.js';
 
 const MovieList = ({movies}) => {
   return (
     <div className="movieList">
-      <ul>{movies[0]}</ul>
-      <ul>{movies[1]}</ul>
-      <ul>{movies[2]}</ul>
-      <ul>{movies[3]}</ul>
-      <ul>{movies[4]}</ul>
+      {movies.map(movie =>
+        <MovieListEntry movie={movie} />
+      )}
     </div>
   )
 };

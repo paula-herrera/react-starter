@@ -11,13 +11,20 @@ class App extends React.Component {
     this.state = {
       movies: MoviesExampleData
     }
+
+    this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this);
   }
+
+  handleSearchButtonClick() {
+    console.log('click!')
+  }
+
   render(){
     return(
     <div>
       <div className="title"><h1>MovieList</h1></div>
       <div className="searchBar">
-        <Search />
+        <Search handleSearchButtonClick={this.handleSearchButtonClick}/>
       </div>
       <div>
         <MovieList movies={this.state.movies}/>

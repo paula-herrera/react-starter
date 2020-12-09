@@ -4,8 +4,8 @@ import MovieListEntry from './MovieListEntry.js';
 const MovieList = ({movies}) => {
   return (
     <div className="movieList">
-      {movies.map(movie =>
-        <MovieListEntry movie={movie} />
+      {movies.map((movie, i) =>
+        <MovieListEntry movie={movie} key={i}/>
       )}
     </div>
   )

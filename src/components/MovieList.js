@@ -1,15 +1,15 @@
 import React from 'react';
 
-const Welcome = () => {
+const MovieList = ({movies}) => {
   return (
     <div className="movieList">
-      <ul>Mean Girls</ul>
-      <ul>Hackers</ul>
-      <ul>The Grey</ul>
-      <ul>Sunshine</ul>
-      <ul>Ex Machina</ul>
+      <ul>{movies[0]}</ul>
+      <ul>{movies[1]}</ul>
+      <ul>{movies[2]}</ul>
+      <ul>{movies[3]}</ul>
+      <ul>{movies[4]}</ul>
     </div>
   )
 };
 
-export default Welcome;
+export default MovieList;

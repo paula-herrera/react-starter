@@ -5,3 +5,5 @@ var movies = [
   {title: 'Sunshine'},
   {title: 'Ex Machina'}
 ];
+
+export default Movies;

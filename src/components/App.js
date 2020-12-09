@@ -11,7 +11,7 @@ class App extends React.Component {
     <div>
       <div className="title"><h1>MovieList</h1></div>
       <div>
-        <MovieList />
+        <MovieList movies={['Mean Girls', 'Hackers', 'The Grey', 'Sunshine', 'Ex Machina']}/>
       </div>
     </div>
   )}

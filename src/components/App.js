@@ -15,8 +15,9 @@ class App extends React.Component {
     this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this);
   }
 
-  handleSearchButtonClick() {
-    console.log('click!')
+  handleSearchButtonClick(val) {
+    console.log(val)
+
   }
 
   render(){

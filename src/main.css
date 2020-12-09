@@ -22,3 +22,7 @@
 .movieList ul:first-child {
   margin-top: 25px;
 }
+
+.searchBar {
+  margin: 50px 25px 0 25px;
+}

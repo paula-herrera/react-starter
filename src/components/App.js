@@ -9,14 +9,24 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      movies: MoviesExampleData
+      movies: MoviesExampleData,
+      searchedMovies: []
     }
 
     this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this);
   }
 
   handleSearchButtonClick(val) {
-    console.log(val)
+    // console.log(val)
+    // console.log(this.state.movies);
+    for (var movie of this.state.movies) {
+      //console.log('original title:', movie.title);
+      let title = movie.title.toLowerCase();
+      //console.log('toLowerCase title:', title);
+      if (title.indexOf(val.toLowerCase()) > -1) {
+        console.log(`${movie.title}`);
+      };
+    }
 
   }
 

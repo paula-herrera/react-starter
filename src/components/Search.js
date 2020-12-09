@@ -26,7 +26,6 @@ class Search extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('submit');
     this.props.handleSearchButtonClick(this.state.value);
   }
 

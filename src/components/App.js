@@ -25,6 +25,11 @@ class App extends React.Component {
         searchResults.push(movie);
       };
     }
+
+    if (searchResults.length === 0) {
+      searchResults.push({title: "Oops! No movies matching that criteria were found."});
+    }
+
     this.setState({
       moviesSearched: searchResults
     })

@@ -8,17 +8,19 @@ class AddMovies extends React.Component {
       value: '',
     }
 
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // handleChange(event) {
-  //   this.setState({value: event.target.value});
-  // }
+  handleChange(event) {
+    console.log('change')
+    this.setState({value: event.target.value});
+  }
 
-  // handleSubmit(event) {
-  //   this.props.handleSearchButtonClick(this.state.value);
-  // }
+  handleSubmit(event) {
+    console.log('click')
+    this.props.handleAddMoviesButtonClick(this.state.value);
+  }
 
   render() {
     return (
@@ -26,13 +28,13 @@ class AddMovies extends React.Component {
         <input type="text"
           placeholder="Add movie title here"
           value={this.state.value}
-          // onChange={this.handleChange}>
-          >
+          onChange={this.handleChange}>
+
         </input>
         <input type="submit"
           value="Add"
-          // onClick={this.handleSubmit}>
-          >
+          onClick={this.handleSubmit}>
+
         </input>
       </div>
     );

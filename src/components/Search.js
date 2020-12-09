@@ -1,14 +1,5 @@
 import React from 'react';
 
-// const Search = (props) => {
-//   return (
-//     <div>
-//       <input type="text" placeholder="Search..."></input>
-//       <input type="submit" value="Go!" onClick={props.handleSearchButtonClick}></input>
-//     </div>
-//   )
-// }
-
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +16,7 @@ class Search extends React.Component {
     this.setState({value: event.target.value});
   }
 
-  handleSubmit(event) {
+  handleSubmit() {
     this.props.handleSearchButtonClick(this.state.value);
   }
 

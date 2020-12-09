@@ -10,11 +10,12 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      moviesSearched: MoviesExampleData,
-      allMovies: MoviesExampleData
+      activeMovies: [],
+      allMovies: []
     }
 
     this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this);
+    this.handleAddMoviesButtonClick = this.handleAddMoviesButtonClick.bind(this);
   }
 
   handleSearchButtonClick(val) {
@@ -32,7 +33,18 @@ class App extends React.Component {
     }
 
     this.setState({
-      moviesSearched: searchResults
+      activeMovies: searchResults,
+    })
+  }
+
+  handleAddMoviesButtonClick(val) {
+    let newMovie = {
+      title: `${val}`
+    }
+
+    this.setState({
+      allMovies: [...this.state.allMovies, newMovie],
+      activeMovies: [...this.state.allMovies, newMovie]
     })
   }
 
@@ -40,12 +52,12 @@ class App extends React.Component {
     return(
     <div>
       <div className="title"><h1>MovieList</h1></div>
-      <div className="addMovies"><AddMovies /></div>
+      <div className="addMovies"><AddMovies handleAddMoviesButtonClick={this.handleAddMoviesButtonClick}/></div>
       <div className="searchBar">
         <Search handleSearchButtonClick={this.handleSearchButtonClick}/>
       </div>
       <div>
-        <MovieList movies={this.state.moviesSearched}/>
+        <MovieList movies={this.state.activeMovies}/>
       </div>
     </div>
   )}

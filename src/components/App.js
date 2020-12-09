@@ -3,6 +3,7 @@ import '../main.css';
 import MovieList from './MovieList.js'
 import MoviesExampleData from './MoviesExampleData.js';
 import Search from './Search.js';
+import AddMovies from './AddMovies.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class App extends React.Component {
     return(
     <div>
       <div className="title"><h1>MovieList</h1></div>
+      <div className="addMovies"><AddMovies /></div>
       <div className="searchBar">
         <Search handleSearchButtonClick={this.handleSearchButtonClick}/>
       </div>

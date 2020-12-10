@@ -1,7 +1,7 @@
 import React from 'react';
 import '../main.css';
 import MovieList from './MovieList.js';
-import Search from './Search.js';
+import Form from './Form.js';
 import AddMovies from './AddMovies.js';
 
 class App extends React.Component {
@@ -13,6 +13,8 @@ class App extends React.Component {
       allMovies: [],
       watched: []
     }
+
+    this.errorMessage = '';
 
     this.searchMovies = this.searchMovies.bind(this);
     this.addMovies = this.addMovies.bind(this);
@@ -30,7 +32,11 @@ class App extends React.Component {
     }
 
     if (searchResults.length === 0) {
-      searchResults.push({title: "Oops! No movies matching that criteria were found."});
+      this.errorMessage = 'Oops! No movies matching that search criteria were found.';
+    }
+
+    if (searchResults.length > 0) {
+      this.errorMessage = '';
     }
 
     this.setState({
@@ -41,6 +47,10 @@ class App extends React.Component {
   addMovies(val) {
     let movieTitle = val;
 
+    if (val.length === 0) {
+      return;
+    }
+
     let newMovie = {
       title: `${val}`
     }
@@ -48,6 +58,8 @@ class App extends React.Component {
     let watched = {
       [movieTitle]: false
     }
+
+    this.errorMessage = '';
 
     this.setState({
       allMovies: [...this.state.allMovies, newMovie],
@@ -58,8 +70,6 @@ class App extends React.Component {
 
   toggleWatchedButton(event) {
     let title = event.target.title;
-    // find the element that matches the movie it was clicked for
-    // change value of that element
     let watched = this.state.watched;
     for (var movie of watched) {
       if (movie.hasOwnProperty(`${title}`)) {
@@ -78,7 +88,7 @@ class App extends React.Component {
       <div className="title"><h1>MovieList</h1></div>
 
       <div className="searchBar">
-        <Search
+        <Form
           searchMovies={this.searchMovies}
           addMovies={this.addMovies}/>
       </div>
@@ -87,6 +97,7 @@ class App extends React.Component {
           movies={this.state.activeMovies}
           watched={this.state.watched}
           toggleWatchedButton={this.toggleWatchedButton}
+          errorMessage={this.errorMessage}
           />
       </div>
     </div>
@@ -94,6 +105,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// ['Mean Girls', 'Hackers', 'The Grey', 'Sunshine', 'Ex Machina']
-//      <div className="addMovies"><AddMovies addMovies={this.addMovies}/></div>

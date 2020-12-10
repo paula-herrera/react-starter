@@ -41,6 +41,7 @@ class Search extends React.Component {
             onChange={this.handleChange}>
           </input>
           <input type="submit"
+            id="add"
             value="Add"
             onClick={this.handleSubmit}>
           </input>

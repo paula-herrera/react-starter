@@ -1,7 +1,7 @@
 import React from 'react';
 import MovieListEntry from './MovieListEntry.js';
 
-const MovieList = ({movies, watched, handleWatchedClick}) => {
+const MovieList = ({movies, watched, toggleWatchedButton}) => {
   return (
     <div className="movieList">
       {movies.map((movie, i) =>
@@ -9,7 +9,7 @@ const MovieList = ({movies, watched, handleWatchedClick}) => {
           movie={movie}
           key={i}
           watched={watched}
-          handleWatchedClick={handleWatchedClick}
+          toggleWatchedButton={toggleWatchedButton}
           />
       )}
     </div>

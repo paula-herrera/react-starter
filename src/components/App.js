@@ -14,12 +14,12 @@ class App extends React.Component {
       watched: []
     }
 
-    this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this);
-    this.handleAddMoviesButtonClick = this.handleAddMoviesButtonClick.bind(this);
-    this.handleWatchedClick = this.handleWatchedClick.bind(this)
+    this.searchMovies = this.searchMovies.bind(this);
+    this.addMovies = this.addMovies.bind(this);
+    this.toggleWatchedButton = this.toggleWatchedButton.bind(this)
   }
 
-  handleSearchButtonClick(val) {
+  searchMovies(val) {
     let searchResults = [];
 
     for (var movie of this.state.allMovies) {
@@ -38,7 +38,7 @@ class App extends React.Component {
     })
   }
 
-  handleAddMoviesButtonClick(val) {
+  addMovies(val) {
     let movieTitle = val;
 
     let newMovie = {
@@ -52,12 +52,11 @@ class App extends React.Component {
     this.setState({
       allMovies: [...this.state.allMovies, newMovie],
       activeMovies: [...this.state.allMovies, newMovie],
-      //setState.watch[] to watch here
       watched: [...this.state.watched, watched]
     })
   }
 
-  handleWatchedClick(event) {
+  toggleWatchedButton(event) {
     let title = event.target.title;
     // find the element that matches the movie it was clicked for
     // change value of that element
@@ -77,15 +76,17 @@ class App extends React.Component {
     return(
     <div>
       <div className="title"><h1>MovieList</h1></div>
-      <div className="addMovies"><AddMovies handleAddMoviesButtonClick={this.handleAddMoviesButtonClick}/></div>
+
       <div className="searchBar">
-        <Search handleSearchButtonClick={this.handleSearchButtonClick}/>
+        <Search
+          searchMovies={this.searchMovies}
+          addMovies={this.addMovies}/>
       </div>
       <div>
         <MovieList
           movies={this.state.activeMovies}
           watched={this.state.watched}
-          handleWatchedClick={this.handleWatchedClick}
+          toggleWatchedButton={this.toggleWatchedButton}
           />
       </div>
     </div>
@@ -95,3 +96,4 @@ class App extends React.Component {
 export default App;
 
 // ['Mean Girls', 'Hackers', 'The Grey', 'Sunshine', 'Ex Machina']
+//      <div className="addMovies"><AddMovies addMovies={this.addMovies}/></div>

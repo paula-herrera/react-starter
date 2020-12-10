@@ -17,7 +17,7 @@ class AddMovies extends React.Component {
   }
 
   handleSubmit() {
-    this.props.handleAddMoviesButtonClick(this.state.value);
+    this.props.addMovies(this.state.value);
   }
 
   render() {

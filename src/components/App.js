@@ -1,7 +1,6 @@
 import React from 'react';
 import '../main.css';
-import MovieList from './MovieList.js'
-import MoviesExampleData from './MoviesExampleData.js';
+import MovieList from './MovieList.js';
 import Search from './Search.js';
 import AddMovies from './AddMovies.js';
 
@@ -17,6 +16,7 @@ class App extends React.Component {
 
     this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this);
     this.handleAddMoviesButtonClick = this.handleAddMoviesButtonClick.bind(this);
+    this.handleWatchedClick = this.handleWatchedClick.bind(this)
   }
 
   handleSearchButtonClick(val) {
@@ -39,12 +39,14 @@ class App extends React.Component {
   }
 
   handleAddMoviesButtonClick(val) {
+    let movieTitle = val;
+
     let newMovie = {
       title: `${val}`
     }
 
     let watched = {
-      `${val}`: true
+      [movieTitle]: false
     }
 
     this.setState({
@@ -52,6 +54,22 @@ class App extends React.Component {
       activeMovies: [...this.state.allMovies, newMovie],
       //setState.watch[] to watch here
       watched: [...this.state.watched, watched]
+    })
+  }
+
+  handleWatchedClick(event) {
+    let title = event.target.title;
+    // find the element that matches the movie it was clicked for
+    // change value of that element
+    let watched = this.state.watched;
+    for (var movie of watched) {
+      if (movie.hasOwnProperty(`${title}`)) {
+        movie[`${title}`] = !movie[`${title}`];
+      }
+    }
+
+    this.setState({
+      watched: watched
     })
   }
 
@@ -66,8 +84,8 @@ class App extends React.Component {
       <div>
         <MovieList
           movies={this.state.activeMovies}
-          // pass down state here
           watched={this.state.watched}
+          handleWatchedClick={this.handleWatchedClick}
           />
       </div>
     </div>

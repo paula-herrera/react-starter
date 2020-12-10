@@ -47,6 +47,10 @@ class Search extends React.Component {
           </input>
         </div>
         <div>
+          <div className="watchedViewBtns">
+            <input type="submit" value="Watched"></input>
+            <input type="submit" value="To Watch"></input>
+          </div>
           <input type="text"
             placeholder="Search..."
             value={this.state.searchValue}

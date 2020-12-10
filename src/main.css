@@ -25,7 +25,7 @@ FORM
 */
 .searchBar,
 .addMovies {
-  margin: 50px 25px 0 25px;
+  margin: 25px 25px 0 25px;
 }
 
 input[type=text] {
@@ -45,7 +45,13 @@ input[type=submit] {
 
 input[id=add] {
   color: white;
-  background-color: #6BA74C
+  background-color: #6BA74C;
+  font-weight: 800;
+}
+
+.watchedViewBtns {
+  float: left;
+  padding-right: 50px;
 }
 
 /*

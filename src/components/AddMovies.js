@@ -13,12 +13,10 @@ class AddMovies extends React.Component {
   }
 
   handleChange(event) {
-    console.log('change')
     this.setState({value: event.target.value});
   }
 
-  handleSubmit(event) {
-    console.log('click')
+  handleSubmit() {
     this.props.handleAddMoviesButtonClick(this.state.value);
   }
 
@@ -34,7 +32,6 @@ class AddMovies extends React.Component {
         <input type="submit"
           value="Add"
           onClick={this.handleSubmit}>
-
         </input>
       </div>
     );

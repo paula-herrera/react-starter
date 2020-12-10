@@ -11,7 +11,8 @@ class App extends React.Component {
 
     this.state = {
       activeMovies: [],
-      allMovies: []
+      allMovies: [],
+      watched: []
     }
 
     this.handleSearchButtonClick = this.handleSearchButtonClick.bind(this);
@@ -42,9 +43,15 @@ class App extends React.Component {
       title: `${val}`
     }
 
+    let watched = {
+      `${val}`: true
+    }
+
     this.setState({
       allMovies: [...this.state.allMovies, newMovie],
-      activeMovies: [...this.state.allMovies, newMovie]
+      activeMovies: [...this.state.allMovies, newMovie],
+      //setState.watch[] to watch here
+      watched: [...this.state.watched, watched]
     })
   }
 
@@ -57,7 +64,11 @@ class App extends React.Component {
         <Search handleSearchButtonClick={this.handleSearchButtonClick}/>
       </div>
       <div>
-        <MovieList movies={this.state.activeMovies}/>
+        <MovieList
+          movies={this.state.activeMovies}
+          // pass down state here
+          watched={this.state.watched}
+          />
       </div>
     </div>
   )}

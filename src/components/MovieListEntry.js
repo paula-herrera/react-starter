@@ -24,9 +24,14 @@ const MovieListEntry = ({movie, allMovies, toggleWatchedButton}) => {
         />
       </ul>
         <div className="info">
-          <ul className="year">Year:   {movie.year}</ul>
-          <ul className="runtime">Runtime:   {movie.runtime} min</ul>
-          <ul className="userRating">Average User Rating:   {movie.vote_average} / 10</ul>
+          <div>
+            <img className="poster" src={movie.poster_url} />
+          </div>
+          <div>
+            <ul className="year">Year:   {movie.year}</ul>
+            <ul className="runtime">Runtime:   {movie.runtime} min</ul>
+            <ul className="userRating">Average User Rating:   {movie.vote_average} / 10</ul>
+          </div>
         </div>
   </div>
   )

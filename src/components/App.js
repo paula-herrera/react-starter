@@ -8,31 +8,36 @@ let moviesSample = [{
   title: 'Little Miss Sunshine',
   year: 2006,
   runtime: 102,
-  vote_average: 7.6
+  vote_average: 7.6,
+  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/tFnTds88mCuLcLPBseK1kF2E3qv.jpg'
 },
 {
   title: 'Fantastic Mr. Fox',
   year: 2009,
   runtime: 87,
-  vote_average: 7.7
+  vote_average: 7.7,
+  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/njbTizADSZg4PqeyJdDzZGooikv.jpg'
 },
 {
   title: 'Gentlemen Prefer Blondes',
   year: 1953,
   runtime: 91,
-  vote_average: 7.2
+  vote_average: 7.2,
+  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/o37B6gW7L5S2bmY52nDcf4JcnwH.jpg'
 },
 {
   title: 'What We Do in the Shadows',
   year: 2015,
   runtime: 86,
-  vote_average: 7.6
+  vote_average: 7.6,
+  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/pDKJFVofjfQj0cUa7z4NAXZavW.jpg'
 },
 {
   title: 'Spirited Away',
   year: 2001,
   runtime: 125,
-  vote_average: 8.5
+  vote_average: 8.5,
+  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/2TeJfUZMGolfDdW6DKhfIWqvq8y.jpg'
 }]
 
 class App extends React.Component {

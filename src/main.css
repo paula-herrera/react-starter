@@ -118,7 +118,7 @@ MOVIE ENTRY
 }
 
 .info {
-  font-size: 10px;
+  font-size: 12px;
   border: none;
   margin: 0px 25px 0 0;
   padding-top: 10px;
@@ -129,4 +129,10 @@ MOVIE ENTRY
   border: none;
   padding-top: 0;
   padding-bottom: 5px;
+}
+
+.poster {
+  float: right;
+  height: 100px;
+  padding-right: 50px;
 }

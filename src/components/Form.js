@@ -7,6 +7,8 @@ class Search extends React.Component {
     this.state = {
       searchValue: '',
       value: '',
+      watchedBtn: 'off',
+      toWatchBtn: 'off'
     }
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
@@ -35,10 +37,20 @@ class Search extends React.Component {
 
   watchedClick() {
     this.props.watchedView()
+
+    this.setState({
+      watchedBtn: 'on',
+      toWatchBtn: 'off'
+    })
   }
 
   toWatchClick() {
     this.props.toWatchView()
+
+    this.setState({
+      watchedBtn: 'off',
+      toWatchBtn: 'on'
+    })
   }
 
   render() {
@@ -60,10 +72,12 @@ class Search extends React.Component {
           <div className="watchedViewBtns">
             <input type="submit"
               value="Watched"
+              className={this.state.watchedBtn}
               onClick={this.watchedClick}>
             </input>
             <input type="submit"
               value="To Watch"
+              className={this.state.toWatchBtn}
               onClick={this.toWatchClick}>
             </input>
           </div>

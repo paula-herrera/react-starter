@@ -49,6 +49,14 @@ input[id=add] {
   font-weight: 800;
 }
 
+.watchedViewBtns .on {
+  background-color: #6BA74C;
+}
+
+.watchedViewBtns .off {
+  background-color: white;
+}
+
 .watchedViewBtns {
   float: left;
   padding-right: 50px;
@@ -80,6 +88,7 @@ MOVIE LIST CONTAINER
 /*
 MOVIE ENTRY
 */
+
 .notWatched {
   float: right;
   border: solid 1px grey;

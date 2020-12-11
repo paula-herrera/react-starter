@@ -9,35 +9,40 @@ let moviesSample = [{
   year: 2006,
   runtime: 102,
   vote_average: 7.6,
-  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/tFnTds88mCuLcLPBseK1kF2E3qv.jpg'
+  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/tFnTds88mCuLcLPBseK1kF2E3qv.jpg',
+  watched: false
 },
 {
   title: 'Fantastic Mr. Fox',
   year: 2009,
   runtime: 87,
   vote_average: 7.7,
-  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/njbTizADSZg4PqeyJdDzZGooikv.jpg'
+  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/njbTizADSZg4PqeyJdDzZGooikv.jpg',
+  watched: false
 },
 {
   title: 'Gentlemen Prefer Blondes',
   year: 1953,
   runtime: 91,
   vote_average: 7.2,
-  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/o37B6gW7L5S2bmY52nDcf4JcnwH.jpg'
+  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/o37B6gW7L5S2bmY52nDcf4JcnwH.jpg',
+  watched: false
 },
 {
   title: 'What We Do in the Shadows',
   year: 2015,
   runtime: 86,
   vote_average: 7.6,
-  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/pDKJFVofjfQj0cUa7z4NAXZavW.jpg'
+  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/pDKJFVofjfQj0cUa7z4NAXZavW.jpg',
+  watched: false,
 },
 {
   title: 'Spirited Away',
   year: 2001,
   runtime: 125,
   vote_average: 8.5,
-  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/2TeJfUZMGolfDdW6DKhfIWqvq8y.jpg'
+  poster_url: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/2TeJfUZMGolfDdW6DKhfIWqvq8y.jpg',
+  watched: false
 }]
 
 class App extends React.Component {
@@ -80,6 +85,7 @@ class App extends React.Component {
 
     this.setState({
       activeMovies: searchResults,
+      selected: ''
     })
   }
 
@@ -100,6 +106,7 @@ class App extends React.Component {
     this.setState({
       allMovies: [...this.state.allMovies, newMovie],
       activeMovies: [...this.state.allMovies, newMovie],
+      selected: ''
     })
   }
 
@@ -113,7 +120,8 @@ class App extends React.Component {
     }
 
     this.setState({
-      activeMovies: watchedMovies
+      activeMovies: watchedMovies,
+      selected: ''
     })
   }
 
@@ -127,7 +135,8 @@ class App extends React.Component {
     }
 
     this.setState({
-      activeMovies: toWatchMovies
+      activeMovies: toWatchMovies,
+      selected: ''
     })
   }
 

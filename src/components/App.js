@@ -4,14 +4,44 @@ import MovieList from './MovieList.js';
 import Form from './Form.js';
 import AddMovies from './AddMovies.js';
 
+let moviesSample = [{
+  title: 'Little Miss Sunshine',
+  year: 2006,
+  runtime: 102,
+  vote_average: 7.6
+},
+{
+  title: 'Fantastic Mr. Fox',
+  year: 2009,
+  runtime: 87,
+  vote_average: 7.7
+},
+{
+  title: 'Gentlemen Prefer Blondes',
+  year: 1953,
+  runtime: 91,
+  vote_average: 7.2
+},
+{
+  title: 'What We Do in the Shadows',
+  year: 2015,
+  runtime: 86,
+  vote_average: 7.6
+},
+{
+  title: 'Spirited Away',
+  year: 2001,
+  runtime: 125,
+  vote_average: 8.5
+}]
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      activeMovies: [],
-      allMovies: [],
-      //watched: []
+      activeMovies: moviesSample,
+      allMovies: moviesSample,
     }
 
     this.errorMessage = '';

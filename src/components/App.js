@@ -58,33 +58,26 @@ class App extends React.Component {
       watched: false
     }
 
-    // let watched = {
-    //   [movieTitle]: false
-    // }
-
     this.errorMessage = '';
 
     this.setState({
       allMovies: [...this.state.allMovies, newMovie],
       activeMovies: [...this.state.allMovies, newMovie],
-      // watched: [...this.state.watched, watched]
     })
   }
 
   watchedView() {
-    console.log('test watched');
-    // let watchedMovies = [];
+    let watchedMovies = [];
 
-    // for (var movie of this.state.allMovies) {
-    //   console.log(movie.title);
+    for (var movie of this.state.allMovies) {
+      if (movie.watched) {
+        watchedMovies.push(movie)
+      }
+    }
 
-    // }
-
-
-
-    // this.setState({
-    //   activeMovies: watchedMovies
-    // })
+    this.setState({
+      activeMovies: watchedMovies
+    })
   }
 
   toWatchView() {
@@ -127,7 +120,6 @@ class App extends React.Component {
         <MovieList
           movies={this.state.activeMovies}
           allMovies={this.state.allMovies}
-          //watched={this.state.watched}
           toggleWatchedButton={this.toggleWatchedButton}
           errorMessage={this.errorMessage}
           />

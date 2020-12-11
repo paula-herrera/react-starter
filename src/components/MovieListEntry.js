@@ -12,16 +12,23 @@ const MovieListEntry = ({movie, allMovies, toggleWatchedButton}) => {
   }
 
   return (
-    <ul>
-    <span>
-    {movie.title}
-    </span>
-    <WatchedButton
-    watched={watchedStatus}
-    toggleWatchedButton={toggleWatchedButton}
-    movieTitle={movie.title}
-    />
-  </ul>
+    <div>
+      <ul>
+        <span>
+          {movie.title}
+        </span>
+        <WatchedButton
+          watched={watchedStatus}
+          toggleWatchedButton={toggleWatchedButton}
+          movieTitle={movie.title}
+        />
+      </ul>
+        <div className="info">
+          <ul className="year">Year:   {movie.year}</ul>
+          <ul className="runtime">Runtime:   {movie.runtime} min</ul>
+          <ul className="userRating">Average User Rating:   {movie.vote_average} / 10</ul>
+        </div>
+  </div>
   )
 }
 

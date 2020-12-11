@@ -41,14 +41,12 @@ const MovieListEntry = ({movie, allMovies, toggleWatchedButton, toggleInfo, sele
             <ul className="year">Year:   {movie.year}</ul>
             <ul className="runtime">Runtime:   {movie.runtime} min</ul>
             <ul className="userRating">Average User Rating:   {movie.vote_average} / 10</ul>
-          </div>
-          <div>
             <WatchedButton
-              watched={watchedStatus}
-              toggleWatchedButton={toggleWatchedButton}
-              movieTitle={movie.title}
-            />
+            watched={watchedStatus}
+            toggleWatchedButton={toggleWatchedButton}
+            movieTitle={movie.title}/>
           </div>
+
           </div>
 
         </div>
@@ -57,3 +55,11 @@ const MovieListEntry = ({movie, allMovies, toggleWatchedButton, toggleInfo, sele
 }
 
 export default MovieListEntry;
+
+/* <div>
+<WatchedButton
+  watched={watchedStatus}
+  toggleWatchedButton={toggleWatchedButton}
+  movieTitle={movie.title}
+/>
+</div> */

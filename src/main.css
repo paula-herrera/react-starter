@@ -115,6 +115,14 @@ MOVIE ENTRY
   background-color: #6BA74C;
 }
 
+input[type="radio"] {
+  padding-top: 10px;
+}
+
+#watched {
+  margin: 0 0 0 0;
+}
+
 .info {
   font-size: 12px;
   border: none;

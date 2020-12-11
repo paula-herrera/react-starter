@@ -1,7 +1,9 @@
 import React from 'react';
 import MovieListEntry from './MovieListEntry.js';
 
-const MovieList = ({movies, allMovies, toggleWatchedButton, errorMessage, toggleInfo}) => {
+const MovieList = ({movies, allMovies, toggleWatchedButton, errorMessage, toggleInfo, selected}) => {
+  console.log('rendering list');
+  console.log(selected);
   return (
     <div className="movieList">
       {errorMessage}
@@ -12,6 +14,7 @@ const MovieList = ({movies, allMovies, toggleWatchedButton, errorMessage, toggle
           allMovies={allMovies}
           toggleWatchedButton={toggleWatchedButton}
           toggleInfo={toggleInfo}
+          selected={selected}
           />
       )}
     </div>

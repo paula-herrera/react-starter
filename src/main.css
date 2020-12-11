@@ -137,3 +137,11 @@ MOVIE ENTRY
   padding-right: 50px;
   padding-left: 50px;
 }
+
+.notSelected {
+  display: none;
+}
+
+.selected {
+  display: visible;
+}

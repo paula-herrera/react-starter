@@ -152,9 +152,15 @@ class App extends React.Component {
   }
 
   toggleInfo(event) {
-    this.setState({
-      selected: `${event.target.title}`
-    })
+    if (event.target.title === this.state.selected) {
+      this.setState({
+        selected: ''
+      })
+    } else {
+      this.setState({
+        selected: `${event.target.title}`
+      })
+    }
   }
 
   render(){
@@ -176,6 +182,7 @@ class App extends React.Component {
           toggleWatchedButton={this.toggleWatchedButton}
           errorMessage={this.errorMessage}
           toggleInfo={this.toggleInfo}
+          selected={this.state.selected}
           />
       </div>
     </div>

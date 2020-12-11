@@ -1,9 +1,11 @@
 import React from 'react';
 import WatchedButton from './WatchedButton.js';
 
-const MovieListEntry = ({movie, allMovies, toggleWatchedButton, toggleInfo}) => {
+const MovieListEntry = ({movie, allMovies, toggleWatchedButton, toggleInfo, selected}) => {
 
   let watchedStatus;
+  let title = movie.title;
+  let className = "info notSelected";
 
   for (var film of allMovies) {
     if (film.title === movie.title) {
@@ -11,7 +13,17 @@ const MovieListEntry = ({movie, allMovies, toggleWatchedButton, toggleInfo}) => 
     }
   }
 
-  let title = movie.title;
+  //console.log('title: ', title)
+  //console.log('selected: ', selected)
+  console.log('rendering entry');
+  console.log(selected);
+
+  if (selected === title) {
+    console.log('true');
+    className= "info selected";
+  } else {
+    className= "info notSelected";
+  }
 
   return (
     <div>
@@ -25,7 +37,7 @@ const MovieListEntry = ({movie, allMovies, toggleWatchedButton, toggleInfo}) => 
           movieTitle={movie.title}
         />
       </ul>
-        <div className="info">
+        <div className={className}>
           <div>
             <img className="poster" src={movie.poster_url} />
           </div>

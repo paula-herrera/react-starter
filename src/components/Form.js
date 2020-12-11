@@ -13,6 +13,8 @@ class Search extends React.Component {
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.watchedClick = this.watchedClick.bind(this);
+    this.toWatchClick = this.toWatchClick.bind(this);
   }
 
   handleSearchChange(event) {
@@ -29,6 +31,14 @@ class Search extends React.Component {
 
   handleSubmit() {
     this.props.addMovies(this.state.value);
+  }
+
+  watchedClick() {
+    this.props.watchedView()
+  }
+
+  toWatchClick() {
+    this.props.toWatchView()
   }
 
   render() {
@@ -48,8 +58,14 @@ class Search extends React.Component {
         </div>
         <div>
           <div className="watchedViewBtns">
-            <input type="submit" value="Watched"></input>
-            <input type="submit" value="To Watch"></input>
+            <input type="submit"
+              value="Watched"
+              onClick={this.watchedClick}>
+            </input>
+            <input type="submit"
+              value="To Watch"
+              onClick={this.toWatchClick}>
+            </input>
           </div>
           <input type="text"
             placeholder="Search..."

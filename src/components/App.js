@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {
       activeMovies: [],
       allMovies: [],
-      watched: []
+      //watched: []
     }
 
     this.errorMessage = '';
@@ -19,6 +19,8 @@ class App extends React.Component {
     this.searchMovies = this.searchMovies.bind(this);
     this.addMovies = this.addMovies.bind(this);
     this.toggleWatchedButton = this.toggleWatchedButton.bind(this)
+    this.watchedView = this.watchedView.bind(this);
+    this.toWatchView = this.toWatchView.bind(this);
   }
 
   searchMovies(val) {
@@ -52,33 +54,60 @@ class App extends React.Component {
     }
 
     let newMovie = {
-      title: `${val}`
+      title: `${val}`,
+      watched: false
     }
 
-    let watched = {
-      [movieTitle]: false
-    }
+    // let watched = {
+    //   [movieTitle]: false
+    // }
 
     this.errorMessage = '';
 
     this.setState({
       allMovies: [...this.state.allMovies, newMovie],
       activeMovies: [...this.state.allMovies, newMovie],
-      watched: [...this.state.watched, watched]
+      // watched: [...this.state.watched, watched]
     })
+  }
+
+  watchedView() {
+    console.log('test watched');
+    // let watchedMovies = [];
+
+    // for (var movie of this.state.allMovies) {
+    //   console.log(movie.title);
+
+    // }
+
+
+
+    // this.setState({
+    //   activeMovies: watchedMovies
+    // })
+  }
+
+  toWatchView() {
+    console.log('test to watch');
   }
 
   toggleWatchedButton(event) {
     let title = event.target.title;
-    let watched = this.state.watched;
-    for (var movie of watched) {
-      if (movie.hasOwnProperty(`${title}`)) {
-        movie[`${title}`] = !movie[`${title}`];
+    let watchedStatus = event.target.className;
+    let movies = this.state.allMovies;
+
+    for (var movie of movies) {
+      if(movie.title === title) {
+        if (watchedStatus === "notWatched") {
+          movie.watched = true;
+        } else {
+          movie.watched = false;
+        }
       }
     }
 
     this.setState({
-      watched: watched
+      allMovies: movies
     })
   }
 
@@ -90,12 +119,15 @@ class App extends React.Component {
       <div className="searchBar">
         <Form
           searchMovies={this.searchMovies}
-          addMovies={this.addMovies}/>
+          addMovies={this.addMovies}
+          watchedView={this.watchedView}
+          toWatchView={this.toWatchView}/>
       </div>
       <div>
         <MovieList
           movies={this.state.activeMovies}
-          watched={this.state.watched}
+          allMovies={this.state.allMovies}
+          //watched={this.state.watched}
           toggleWatchedButton={this.toggleWatchedButton}
           errorMessage={this.errorMessage}
           />

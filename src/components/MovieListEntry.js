@@ -1,13 +1,13 @@
 import React from 'react';
 import WatchedButton from './WatchedButton.js';
 
-const MovieListEntry = ({movie, watched, toggleWatchedButton}) => {
+const MovieListEntry = ({movie, allMovies, toggleWatchedButton}) => {
 
   let watchedStatus;
 
-  for (var film of watched) {
-    if (film.hasOwnProperty(`${movie.title}`)){
-      watchedStatus = film[`${movie.title}`]
+  for (var film of allMovies) {
+    if (film.title === movie.title) {
+      watchedStatus = film.watched;
     }
   }
 

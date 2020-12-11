@@ -81,7 +81,17 @@ class App extends React.Component {
   }
 
   toWatchView() {
-    console.log('test to watch');
+    let toWatchMovies = [];
+
+    for (var movie of this.state.allMovies) {
+      if (!movie.watched) {
+        toWatchMovies.push(movie)
+      }
+    }
+
+    this.setState({
+      activeMovies: toWatchMovies
+    })
   }
 
   toggleWatchedButton(event) {

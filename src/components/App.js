@@ -47,6 +47,7 @@ class App extends React.Component {
     this.state = {
       activeMovies: moviesSample,
       allMovies: moviesSample,
+      selected: ''
     }
 
     this.errorMessage = '';
@@ -56,6 +57,7 @@ class App extends React.Component {
     this.toggleWatchedButton = this.toggleWatchedButton.bind(this)
     this.watchedView = this.watchedView.bind(this);
     this.toWatchView = this.toWatchView.bind(this);
+    this.toggleInfo = this.toggleInfo.bind(this);
   }
 
   searchMovies(val) {
@@ -149,6 +151,12 @@ class App extends React.Component {
     })
   }
 
+  toggleInfo(event) {
+    this.setState({
+      selected: `${event.target.title}`
+    })
+  }
+
   render(){
     return(
     <div>
@@ -167,6 +175,7 @@ class App extends React.Component {
           allMovies={this.state.allMovies}
           toggleWatchedButton={this.toggleWatchedButton}
           errorMessage={this.errorMessage}
+          toggleInfo={this.toggleInfo}
           />
       </div>
     </div>

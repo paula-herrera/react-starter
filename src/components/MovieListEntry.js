@@ -1,7 +1,7 @@
 import React from 'react';
 import WatchedButton from './WatchedButton.js';
 
-const MovieListEntry = ({movie, allMovies, toggleWatchedButton}) => {
+const MovieListEntry = ({movie, allMovies, toggleWatchedButton, toggleInfo}) => {
 
   let watchedStatus;
 
@@ -11,10 +11,12 @@ const MovieListEntry = ({movie, allMovies, toggleWatchedButton}) => {
     }
   }
 
+  let title = movie.title;
+
   return (
     <div>
-      <ul>
-        <span>
+      <ul onClick={toggleInfo} title={title}>
+        <span title={title}>
           {movie.title}
         </span>
         <WatchedButton

@@ -2,7 +2,7 @@ import React from 'react';
 
 const MovieEntry = ({movie}) => {
   return (
-    <div class="movieEntry">{movie.title}</div>
+    <div className="movieEntry">{movie.title}</div>
   )
 };
 

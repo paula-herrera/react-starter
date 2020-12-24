@@ -13,13 +13,7 @@ const MovieListEntry = ({movie, allMovies, toggleWatchedButton, toggleInfo, sele
     }
   }
 
-  //console.log('title: ', title)
-  //console.log('selected: ', selected)
-  console.log('rendering entry');
-  console.log(selected);
-
   if (selected === title) {
-    console.log('true');
     className= "info selected";
   } else {
     className= "info notSelected";
@@ -56,10 +50,3 @@ const MovieListEntry = ({movie, allMovies, toggleWatchedButton, toggleInfo, sele
 
 export default MovieListEntry;
 
-/* <div>
-<WatchedButton
-  watched={watchedStatus}
-  toggleWatchedButton={toggleWatchedButton}
-  movieTitle={movie.title}
-/>
-</div> */

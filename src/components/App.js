@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieList from './MovieList.js';
+import '../main.css';
 
 var movies = [
   {title: 'Mean Girls'},

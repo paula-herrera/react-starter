@@ -17,7 +17,8 @@ class App extends React.Component {
 
     this.state = {
       allMovies: movies,
-      searchedMovies: movies
+      searchedMovies: movies,
+      errorMessage: "noErrorMessage"
     };
 
     this.handleSearchClick = this.handleSearchClick.bind(this);
@@ -26,14 +27,26 @@ class App extends React.Component {
   handleSearchClick(searchValue) {
     searchValue = searchValue.toLowerCase();
     let searchMatches = [];
+
     for (var movie of this.state.allMovies) {
       if ((movie.title.toLowerCase()).indexOf(searchValue) > -1) {
         searchMatches.push(movie);
       }
     }
-    this.setState({
-      searchedMovies: searchMatches
-    })
+
+    console.log(searchMatches);
+
+    if (searchMatches.length === 0) {
+      this.setState({
+        searchedMovies: searchMatches,
+        errorMessage: "errorMessage"
+      })
+    } else {
+      this.setState({
+        searchedMovies: searchMatches,
+        errorMessage: "noErrorMessage"
+      })
+    }
   }
 
   render(){
@@ -46,6 +59,9 @@ class App extends React.Component {
         />
       </div>
       <div>
+        <div className={this.state.errorMessage}>
+          Oops! No movies were found matching your search criteria.
+        </div>
         <MovieList
           movies={this.state.searchedMovies}
         />

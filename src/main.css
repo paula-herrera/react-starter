@@ -18,6 +18,15 @@ body {
   margin: 0 25px 25px 25px;
 }
 
+.noErrorMessage {
+  margin: 0 25px 50px 25px;
+  display: none;
+}
+
+.errorMessage {
+  margin: 0 25px 50px 25px;
+}
+
 .movieList {
   margin: 0 25px 50px 25px;
 }

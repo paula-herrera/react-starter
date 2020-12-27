@@ -16,8 +16,8 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      allMovies: movies,
-      searchedMovies: movies,
+      allMovies: [],
+      searchedMovies: [],
       errorMessage: "noErrorMessage"
     };
 

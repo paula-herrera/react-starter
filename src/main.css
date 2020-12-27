@@ -75,18 +75,37 @@ body {
   margin: 0 200px 50px 200px;
 }
 
-.movieList .movieEntry {
+.movieList .movieEntry .movieTitle {
   border: solid 1px grey;
   border-bottom: none;
   padding: 20px 25px 20px 30px;
 }
+
+.movieList .movieInfo {
+  border: solid 1px grey;
+  border-bottom: none;
+  padding: 20px 25px 20px 30px;
+  font-size: 12px;
+}
+
+.notSelected {
+  background-color: red;
+  display: none;
+}
+
+.selected {
+  background-color: green;
+
+}
+
+
+
 
 .movieList .movieEntry:last-child{
   border-bottom: solid 1px grey;
 }
 
 .movieEntry .watched {
-  float: right;
   background-color: rgb(62, 204, 62);
   font-weight: bold;
   color: white;
@@ -97,7 +116,6 @@ body {
 }
 
 .movieEntry .notWatched {
-  float: right;
   background-color: white;
   font-weight: bold;
   color: black;

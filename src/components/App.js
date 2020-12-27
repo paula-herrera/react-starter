@@ -18,7 +18,8 @@ class App extends React.Component {
     this.state = {
       allMovies: [],
       searchedMovies: [],
-      errorMessage: "noErrorMessage"
+      errorMessage: "noErrorMessage",
+      selectedMovie: ''
     };
 
     this.handleSearchClick = this.handleSearchClick.bind(this);
@@ -26,6 +27,7 @@ class App extends React.Component {
     this.toggleWatched = this.toggleWatched.bind(this);
     this.watchedView = this.watchedView.bind(this);
     this.toWatchView = this.toWatchView.bind(this);
+    this.selectMovie = this.selectMovie.bind(this);
   }
 
   handleSearchClick(searchValue) {
@@ -106,6 +108,19 @@ class App extends React.Component {
     })
   }
 
+  selectMovie(event) {
+    let movieTitle = event.target.innerHTML;
+    if (this.state.selectedMovie === movieTitle) {
+      this.setState({
+        selectedMovie: ''
+      })
+    } else {
+      this.setState({
+        selectedMovie: movieTitle
+      })
+    }
+  }
+
   render(){
     return(
     <div>
@@ -125,6 +140,8 @@ class App extends React.Component {
         <MovieList
           movies={this.state.searchedMovies}
           toggleWatched={this.toggleWatched}
+          selectMovie={this.selectMovie}
+          selectedMovie={this.state.selectedMovie}
         />
       </div>
     </div>

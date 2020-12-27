@@ -24,6 +24,8 @@ class App extends React.Component {
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.handleAddMovieClick = this.handleAddMovieClick.bind(this);
     this.toggleWatched = this.toggleWatched.bind(this);
+    this.watchedView = this.watchedView.bind(this);
+    this.toWatchView = this.toWatchView.bind(this);
   }
 
   handleSearchClick(searchValue) {
@@ -35,7 +37,6 @@ class App extends React.Component {
         searchMatches.push(movie);
       }
     }
-
     if (searchMatches.length === 0) {
       this.setState({
         searchedMovies: searchMatches,
@@ -69,12 +70,36 @@ class App extends React.Component {
         movie.watched = !movie.watched;
       }
     }
-
     this.setState({
       allMovies: movies,
       searchedMovies: movies
     })
+  }
 
+  watchedView() {
+    let movies = this.state.allMovies;
+    let activeMovies = [];
+    for (var movie of movies) {
+      if (movie.watched) {
+        activeMovies.push(movie);
+      }
+    }
+    this.setState({
+      searchedMovies: activeMovies
+    })
+  }
+
+  toWatchView() {
+    let movies = this.state.allMovies;
+    let activeMovies = [];
+    for (var movie of movies) {
+      if (!movie.watched) {
+        activeMovies.push(movie);
+      }
+    }
+    this.setState({
+      searchedMovies: activeMovies
+    })
   }
 
   render(){
@@ -85,6 +110,8 @@ class App extends React.Component {
         <Search
           handleSearchClick={this.handleSearchClick}
           handleAddMovieClick={this.handleAddMovieClick}
+          watchedView={this.watchedView}
+          toWatchView={this.toWatchView}
         />
       </div>
       <div>

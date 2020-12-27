@@ -39,12 +39,44 @@ class Search extends React.Component {
     return (
       <div>
         <div className="addMovies">
-          <input name="addMovies" type="text" placeholder="Add Movie Title Here" onChange={this.addMovieChange}></input>
-          <input type="submit" value="Add" onClick={this.addMovieClick}></input>
+          <input
+            name="addMovies"
+            type="text"
+            placeholder="Add Movie Title Here"
+            onChange={this.addMovieChange}
+          ></input>
+          <input
+            type="submit"
+            value="Add"
+            onClick={this.addMovieClick}
+          ></input>
         </div>
         <div className="search">
-          <input name="searchMovies" type="text" placeholder="Search..." onChange={this.searchChange}></input>
-          <input type="submit" value="Go!" onClick={this.searchClick}></input>
+          <div className="views">
+            <input
+              type="submit"
+              value="watched"
+              className="watchedView"
+              onClick={this.props.watchedView}
+            ></input>
+            <input
+              type="submit"
+              value="watched"
+              className="toWatchView"
+              onClick={this.props.toWatchView}
+            ></input>
+          </div>
+          <input
+            name="searchMovies"
+            type="text"
+            placeholder="Search..."
+            onChange={this.searchChange}
+          ></input>
+          <input
+            type="submit"
+            value="Go!"
+            onClick={this.searchClick}
+          ></input>
         </div>
       </div>
     )

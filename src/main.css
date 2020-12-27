@@ -18,6 +18,11 @@ body {
   margin: 0 200px 25px 200px;
 }
 
+.views {
+  float: left;
+  margin-right: 50px;
+}
+
 .noErrorMessage {
   margin: 0 200px 50px 200px;
   display: none;

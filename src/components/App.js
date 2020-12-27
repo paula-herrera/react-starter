@@ -22,6 +22,7 @@ class App extends React.Component {
     };
 
     this.handleSearchClick = this.handleSearchClick.bind(this);
+    this.handleAddMovieClick = this.handleAddMovieClick.bind(this);
   }
 
   handleSearchClick(searchValue) {
@@ -33,8 +34,6 @@ class App extends React.Component {
         searchMatches.push(movie);
       }
     }
-
-    console.log(searchMatches);
 
     if (searchMatches.length === 0) {
       this.setState({
@@ -49,6 +48,16 @@ class App extends React.Component {
     }
   }
 
+  handleAddMovieClick(movie) {
+    let movies = this.state.allMovies;
+    let newMovie = {title: movie};
+    movies.push(newMovie);
+    this.setState({
+      allMovies: movies,
+      searchedMovies: movies
+    });
+  }
+
   render(){
     return(
     <div>
@@ -56,6 +65,7 @@ class App extends React.Component {
       <div>
         <Search
           handleSearchClick={this.handleSearchClick}
+          handleAddMovieClick={this.handleAddMovieClick}
         />
       </div>
       <div>

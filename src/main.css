@@ -15,12 +15,51 @@ body {
 
 .addMovies,
 .search {
-  margin: 0 200px 25px 200px;
+  margin: 0 200px 0 200px;
+}
+
+.addMovies {
+  margin-bottom: 25px
+}
+
+#addMoviesField,
+#searchField {
+  padding: 5px 5px 5px 5px;
+}
+
+#addBtn {
+  background-color: rgb(62, 204, 62);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  padding: 7px 7px 7px 7px;
+  margin-left: 5px;
+}
+
+.searchBar {
+  margin-bottom: 25px;
+}
+
+#searchBtn {
+  background-color: white;
+  border: 1px solid grey;
+  border-left: none;
+  border-radius: 3px;
+  padding: 6px 7px 6px 7px;
 }
 
 .views {
   float: left;
   margin-right: 50px;
+}
+
+.watchedView,
+.toWatchView {
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 10px 10px 10px 10px;
 }
 
 .noErrorMessage {

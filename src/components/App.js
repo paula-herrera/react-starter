@@ -59,7 +59,8 @@ class App extends React.Component {
     movies.push(newMovie);
     this.setState({
       allMovies: movies,
-      searchedMovies: movies
+      searchedMovies: movies,
+      errorMessage: "noErrorMessage"
     });
   }
 
@@ -72,7 +73,8 @@ class App extends React.Component {
     }
     this.setState({
       allMovies: movies,
-      searchedMovies: movies
+      searchedMovies: movies,
+      errorMessage: "noErrorMessage"
     })
   }
 
@@ -85,7 +87,8 @@ class App extends React.Component {
       }
     }
     this.setState({
-      searchedMovies: activeMovies
+      searchedMovies: activeMovies,
+      errorMessage: "noErrorMessage"
     })
   }
 
@@ -98,7 +101,8 @@ class App extends React.Component {
       }
     }
     this.setState({
-      searchedMovies: activeMovies
+      searchedMovies: activeMovies,
+      errorMessage: "noErrorMessage"
     })
   }
 

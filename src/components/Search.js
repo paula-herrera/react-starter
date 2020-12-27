@@ -40,12 +40,14 @@ class Search extends React.Component {
       <div>
         <div className="addMovies">
           <input
+            id="addMoviesField"
             name="addMovies"
             type="text"
             placeholder="Add Movie Title Here"
             onChange={this.addMovieChange}
           ></input>
           <input
+            id="addBtn"
             type="submit"
             value="Add"
             onClick={this.addMovieClick}
@@ -55,28 +57,32 @@ class Search extends React.Component {
           <div className="views">
             <input
               type="submit"
-              value="watched"
+              value="Watched"
               className="watchedView"
               onClick={this.props.watchedView}
             ></input>
             <input
               type="submit"
-              value="watched"
+              value="To Watch"
               className="toWatchView"
               onClick={this.props.toWatchView}
             ></input>
           </div>
-          <input
-            name="searchMovies"
-            type="text"
-            placeholder="Search..."
-            onChange={this.searchChange}
-          ></input>
-          <input
-            type="submit"
-            value="Go!"
-            onClick={this.searchClick}
-          ></input>
+          <div className="searchBar">
+            <input
+              id="searchField"
+              name="searchMovies"
+              type="text"
+              placeholder="Search..."
+              onChange={this.searchChange}
+            ></input>
+            <input
+              id="searchBtn"
+              type="submit"
+              value="Go!"
+              onClick={this.searchClick}
+            ></input>
+          </div>
         </div>
       </div>
     )

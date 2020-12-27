@@ -26,11 +26,11 @@ const MovieEntry = ({movie, toggleWatched, selectMovie, selectedMovie}) => {
       <div className={className}>
         <b>Year: </b>1999<br></br>
         <b>Runtime: </b>112 min<br></br>
-        <input
+        <b>Watched: </b><input
           className={status}
           name={movie.title}
           type="submit"
-          value="Watched"
+          value=""
           onClick={toggleWatched}
         ></input>
       </div>

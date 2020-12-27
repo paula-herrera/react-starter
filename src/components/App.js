@@ -47,13 +47,20 @@ class App extends React.Component {
     } else {
       this.setState({
         searchedMovies: searchMatches,
-        errorMessage: "noErrorMessage"
+        errorMessage: "noErrorMessage",
+        selectedMovie: ''
       })
     }
   }
 
   handleAddMovieClick(movie) {
     let movies = this.state.allMovies;
+    for (var film of movies) {
+      if (film.title === movie) {
+        alert('This movie has already been added');
+        return;
+      }
+    }
     let newMovie = {
       title: movie,
       watched: false
@@ -62,7 +69,8 @@ class App extends React.Component {
     this.setState({
       allMovies: movies,
       searchedMovies: movies,
-      errorMessage: "noErrorMessage"
+      errorMessage: "noErrorMessage",
+      selectedMovie: ''
     });
   }
 
@@ -75,7 +83,6 @@ class App extends React.Component {
     }
     this.setState({
       allMovies: movies,
-      searchedMovies: movies,
       errorMessage: "noErrorMessage"
     })
   }
@@ -90,7 +97,8 @@ class App extends React.Component {
     }
     this.setState({
       searchedMovies: activeMovies,
-      errorMessage: "noErrorMessage"
+      errorMessage: "noErrorMessage",
+      selectedMovie: ''
     })
   }
 
@@ -104,7 +112,8 @@ class App extends React.Component {
     }
     this.setState({
       searchedMovies: activeMovies,
-      errorMessage: "noErrorMessage"
+      errorMessage: "noErrorMessage",
+      selectedMovie: ''
     })
   }
 

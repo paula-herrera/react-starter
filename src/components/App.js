@@ -23,6 +23,7 @@ class App extends React.Component {
 
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.handleAddMovieClick = this.handleAddMovieClick.bind(this);
+    this.toggleWatched = this.toggleWatched.bind(this);
   }
 
   handleSearchClick(searchValue) {
@@ -50,12 +51,30 @@ class App extends React.Component {
 
   handleAddMovieClick(movie) {
     let movies = this.state.allMovies;
-    let newMovie = {title: movie};
+    let newMovie = {
+      title: movie,
+      watched: false
+    };
     movies.push(newMovie);
     this.setState({
       allMovies: movies,
       searchedMovies: movies
     });
+  }
+
+  toggleWatched(event) {
+    let movies = this.state.allMovies;
+    for (var movie of movies) {
+      if (movie.title === event.target.name) {
+        movie.watched = !movie.watched;
+      }
+    }
+
+    this.setState({
+      allMovies: movies,
+      searchedMovies: movies
+    })
+
   }
 
   render(){
@@ -74,6 +93,7 @@ class App extends React.Component {
         </div>
         <MovieList
           movies={this.state.searchedMovies}
+          toggleWatched={this.toggleWatched}
         />
       </div>
     </div>

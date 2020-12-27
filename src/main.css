@@ -40,3 +40,25 @@ body {
 .movieList .movieEntry:last-child{
   border-bottom: solid 1px grey;
 }
+
+.movieEntry .watched {
+  float: right;
+  background-color: rgb(62, 204, 62);
+  font-weight: bold;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  font-size: 10px;
+}
+
+.movieEntry .notWatched {
+  float: right;
+  background-color: white;
+  font-weight: bold;
+  color: black;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  font-size: 10px;
+}

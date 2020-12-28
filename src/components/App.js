@@ -2,6 +2,8 @@ import React from 'react';
 import MovieList from './MovieList.js';
 import '../main.css';
 import Search from './Search.js';
+import TMDB_API_KEY from '../config/tmdb.js';
+
 
 var movies = [
   {title: 'Mean Girls'},
@@ -61,17 +63,34 @@ class App extends React.Component {
         return;
       }
     }
-    let newMovie = {
-      title: movie,
-      watched: false
-    };
-    movies.push(newMovie);
-    this.setState({
-      allMovies: movies,
-      searchedMovies: movies,
-      errorMessage: "noErrorMessage",
-      selectedMovie: ''
-    });
+
+    $.get({
+      url: 'https://api.themoviedb.org/3/search/movie',
+      data:{
+        api_key: 'f5ea6e3d0ff62ab5e0a24f7b2b252ea6',
+        query: movie,
+        include_adult: false,
+      },
+      success: data => {
+        let result = data.results[0];
+        let newMovie = {
+          title: result.title,
+          release_date: result.releases_date,
+          vote_average: result.vote_average,
+          poster_path: result.poster_path,
+          overview: result.overview,
+          watched: false
+        };
+        movies.push(newMovie);
+        this.setState({
+          allMovies: movies,
+          searchedMovies: movies,
+          errorMessage: "noErrorMessage",
+          selectedMovie: ''
+        });
+      },
+      dataType: 'json'
+    })
   }
 
   toggleWatched(event) {
